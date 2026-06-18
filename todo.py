@@ -33,7 +33,6 @@ def todo():
                 tasks.update({len(tasks)+1:c1})
                 print("task added successfully🎊🎊\n")
         elif choice == "3":
-            i = 0
             print("=====taskes avaliable=====")
             for key, values in tasks.items():
                 print(f"{key}: {values}")
@@ -43,8 +42,7 @@ def todo():
                 tasks[c2] = f'{tasks[c2]} (completed)✅' 
                 print("Tasks list updated successfully🎊\n")
             else:
-                print("option not in task\n")
-             
+                print("option not in task\n")    
         elif choice == "4":
             pass
         elif choice == "5":
