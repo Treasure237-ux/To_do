@@ -44,7 +44,16 @@ def todo():
             else:
                 print("option not in task\n")    
         elif choice == "4":
-            pass
+            print("=====taskes avaliable=====")
+            for key, values in tasks.items():
+                print(f"{key}: {values}")
+
+            c3 = int(input("Enter option to delete: "))
+            if c3 in tasks.keys():
+                del tasks[c3]
+                print("task deleted successfully✅✅\n")
+            else:
+                print("invalid option☠️☠️")
         elif choice == "5":
             is_running = False
         else:
