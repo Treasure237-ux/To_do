@@ -1,5 +1,7 @@
 is_running = True
-tasks = ["run","jog"]
+tasks = {1:"run", 2:"jog"}
+
+
 
 def todo():
     global is_running, tasks
@@ -20,29 +22,25 @@ def todo():
             else:
                 i = 0
                 print("\n**********CURRENT TASKS**********")
-                for task in tasks:
-                    i += 1
-                    print(f"{i}. {task}")
+                for key, values in tasks.items():
+                    print(f"{key}: {values}")
                 print("***********************************\n")
         elif choice == "2":
-            c1 = input("Enter Task: ")
-            if c1 in tasks:
+            c1 = (input("Enter Task: ")).lower()
+            if c1 in tasks.values():
                 print(f"{c1} is already in task list")
             else:
-                tasks.append(c1)
+                tasks.update({len(tasks)+1:c1})
                 print("task added successfully🎊🎊\n")
         elif choice == "3":
             i = 0
             print("=====taskes avaliable=====")
-            for task in tasks:
-                i += 1
-                print(f"{i}. {task}")
-            c2 = input("choose option of completed task: ")
-            for j in task:
-                return j
+            for key, values in tasks.items():
+                print(f"{key}: {values}")
+            c2 = int(input("choose option of completed task: "))
 
-            if c2 == j:
-                tasks[int(j)-1] = f'{tasks[int(j)-1]} (completed)✅' 
+            if c2 in tasks.keys():
+                tasks[c2] = f'{tasks[c2]} (completed)✅' 
                 print("Tasks list updated successfully🎊\n")
             else:
                 print("option not in task\n")
